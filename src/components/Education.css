@@ -1,0 +1,126 @@
+.timeline {
+  position: relative;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  margin-left: -1.5px;
+  background-color: #3a3a3a;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  clear: both;
+}
+
+.timeline-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  border-radius: 50%;
+  background-color: var(--bs-primary);
+  z-index: 1;
+}
+
+.timeline-panel {
+  position: relative;
+  width: 46%;
+  float: left;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.timeline-item:nth-child(even) .timeline-panel {
+  float: right;
+}
+
+.timeline-item:nth-child(odd) .timeline-panel:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #2a2a2a;
+  border-bottom: 15px solid transparent;
+}
+
+.timeline-item:nth-child(even) .timeline-panel:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -15px;
+  border-top: 15px solid transparent;
+  border-right: 15px solid #2a2a2a;
+  border-bottom: 15px solid transparent;
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.timeline-subtitle {
+  font-weight: 500;
+  color: #b0b0b0;
+  margin-bottom: 5px;
+}
+
+.timeline-date {
+  color: var(--bs-primary);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.project-card, .certification-card {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  color: #e0e0e0;
+}
+
+.project-title {
+  color: var(--bs-primary);
+  margin-bottom: 15px;
+}
+
+.project-description {
+  line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  .timeline:before {
+    left: 40px;
+  }
+  
+  .timeline-badge {
+    left: 40px;
+  }
+  
+  .timeline-panel {
+    width: calc(100% - 90px);
+    float: right;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-panel:before {
+    right: auto;
+    left: -15px;
+    border-right: 15px solid #2a2a2a;
+    border-left: 0;
+  }
+}
+

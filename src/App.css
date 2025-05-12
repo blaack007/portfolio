@@ -1,0 +1,46 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Add section animation styles */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Different animation delays for each section */
+#hero.section-visible {
+  transition-delay: 0s;
+}
+
+#bio.section-visible {
+  transition-delay: 0.1s;
+}
+
+#skills.section-visible {
+  transition-delay: 0.2s;
+}
+
+#education.section-visible {
+  transition-delay: 0.3s;
+}
+
+#contact.section-visible {
+  transition-delay: 0.4s;
+}
+
+/* Make sure the first section (hero) is visible immediately */
+#hero {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
