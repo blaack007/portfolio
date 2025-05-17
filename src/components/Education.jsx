@@ -19,7 +19,8 @@ function Education() {
   const projects = [
     {
       name: 'E-commerce Website Project',
-      description: 'Designed and developed a full-stack E-commerce web application using Python (Django), HTML, CSS, and JavaScript. Integrated secure authentication, product management, shopping cart, and online payment functionalities. Built and optimized database models with SQL. Implemented responsive frontend design ensuring user-friendly experience across devices.'
+      description: 'Developed a modern E-commerce web application using React and Bootstrap. Implemented responsive design with a user-friendly interface, product catalog, shopping cart functionality, and smooth animations. Features include product filtering, search functionality, and a seamless shopping experience across all devices.',
+      liveLink: 'https://e-commerce-steel-three-52.vercel.app/'
     }
   ]
 
@@ -54,6 +55,11 @@ function Education() {
               <div className="project-card">
                 <h4 className="project-title">{project.name}</h4>
                 <p className="project-description">{project.description}</p>
+                {project.liveLink && (
+                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-3">
+                    View Live Site
+                  </a>
+                )}
               </div>
             </div>
           ))}

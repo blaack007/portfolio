@@ -1,7 +1,53 @@
+import { useState, useRef } from 'react'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedinIn, FaGithub } from 'react-icons/fa'
+import emailjs from '@emailjs/browser'
 import './Contact.css'
 
 function Contact() {
+  const form = useRef()
+  const [status, setStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: null
+  })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus({ submitting: true, submitted: false, error: null })
+
+    try {
+      await emailjs.sendForm(
+        'service_diunzws', 
+        'template_k58naan', 
+        form.current,
+        '5ojB2PhrDAICY93Z3' 
+      )
+
+      setStatus({
+        submitting: false,
+        submitted: true,
+        error: null
+      })
+      form.current.reset()
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setStatus({
+          submitting: false,
+          submitted: false,
+          error: null
+        })
+      }, 5000)
+
+    } catch (error) {
+      setStatus({
+        submitting: false,
+        submitted: false,
+        error: 'Failed to send message. Please try again.'
+      })
+    }
+  }
+
   return (
     <section id="contact" className="py-5 bg-light">
       <div className="container">
@@ -47,20 +93,64 @@ function Contact() {
             </div>
           </div>
           <div className="col-md-6">
-            <form className="contact-form">
+            <form ref={form} onSubmit={handleSubmit} className="contact-form">
               <div className="mb-3">
-                <input type="text" className="form-control" placeholder="Your Name" required />
+                <input 
+                  type="text" 
+                  name="user_name"
+                  className="form-control" 
+                  placeholder="Your Name" 
+                  required 
+                  disabled={status.submitting}
+                />
               </div>
               <div className="mb-3">
-                <input type="email" className="form-control" placeholder="Your Email" required />
+                <input 
+                  type="email" 
+                  name="user_email"
+                  className="form-control" 
+                  placeholder="Your Email" 
+                  required 
+                  disabled={status.submitting}
+                />
               </div>
               <div className="mb-3">
-                <input type="text" className="form-control" placeholder="Subject" required />
+                <input 
+                  type="text" 
+                  name="subject"
+                  className="form-control" 
+                  placeholder="Subject" 
+                  required 
+                  disabled={status.submitting}
+                />
               </div>
               <div className="mb-3">
-                <textarea className="form-control" rows="5" placeholder="Your Message" required></textarea>
+                <textarea 
+                  name="message"
+                  className="form-control" 
+                  rows="5" 
+                  placeholder="Your Message" 
+                  required
+                  disabled={status.submitting}
+                ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary">Send Message</button>
+              {status.error && (
+                <div className="alert alert-danger" role="alert">
+                  {status.error}
+                </div>
+              )}
+              {status.submitted && (
+                <div className="alert alert-success" role="alert">
+                  Message sent successfully!
+                </div>
+              )}
+              <button 
+                type="submit" 
+                className="btn btn-primary"
+                disabled={status.submitting}
+              >
+                {status.submitting ? 'Sending...' : 'Send Message'}
+              </button>
             </form>
           </div>
         </div>

@@ -93,6 +93,19 @@
   color: #e0e0e0;
 }
 
+.project-card {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  color: #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
 .project-title {
   color: var(--bs-primary);
   margin-bottom: 15px;
@@ -100,6 +113,18 @@
 
 .project-description {
   line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.project-card .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.project-card .btn-primary:hover {
+  transform: translateY(-2px);
 }
 
 @media (max-width: 767px) {

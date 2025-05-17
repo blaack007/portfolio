@@ -26,7 +26,7 @@ function Bio() {
               I combine business acumen with technical expertise to deliver solutions that meet both user needs and 
               business objectives.
             </p>
-            <a href="/mohamed-khalifa-cv.pdf" className="btn btn-primary mt-3" download>
+            <a href="../assets/Mohamed_Ahmed_Khalifa_CV1.pdf" className="btn btn-primary mt-3" download>
               <FaDownload className="me-2" /> Download CV
             </a>
           </div>
