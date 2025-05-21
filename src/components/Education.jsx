@@ -21,6 +21,11 @@ function Education() {
       name: 'E-commerce Website Project',
       description: 'Developed a modern E-commerce web application using React and Bootstrap. Implemented responsive design with a user-friendly interface, product catalog, shopping cart functionality, and smooth animations. Features include product filtering, search functionality, and a seamless shopping experience across all devices.',
       liveLink: 'https://e-commerce-steel-three-52.vercel.app/'
+    },
+    {
+      name: 'Movie App Project',
+      description: 'Created an interactive movie browsing application using React. Features include movie search, filtering by categories, detailed movie information, and responsive design. Implemented API integration to fetch movie data, state management for user interactions, and modern UI components for an engaging user experience.',
+      liveLink: 'https://my-movie-app-five-bay.vercel.app/'
     }
   ]
 
